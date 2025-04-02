@@ -96,16 +96,16 @@ body {
   width: 100%;
   padding: 20px;
   border: 1px solid #8ae35d;
-  border-radius: 40px;
+  border-radius: 50px;
   box-sizing: border-box;
   background: linear-gradient(
     135deg,
-    #70cc41 0%,
-    #7ddb4e 20%,
-    #70cc41 40%,
-    #7bd84c 60%,
-    #79d04e 80%,
-    #70cc41 100%
+    #60b038 0%,
+    #6dbe44 20%,
+    #5ead37 40%,
+    #68b740 60%,
+    #66af41 80%,
+    #62b339 100%
   );
   animation: metallicGreenLoop 7s ease-in-out infinite;
   background-size: 300% 300%;
@@ -185,7 +185,8 @@ body {
 
 /* Hero Section */
 .hero {
-  background-color: var(--primary-color);
+  /* background-color: var(--primary-color); */
+  background-color: #5dad35;
   color: var(--light-color);
   height: auto;
   border-bottom-left-radius: 1500px 200px;
@@ -250,7 +251,8 @@ section ul li {
 .section-hero_mid {
   display: flex;
   flex-direction: column;
-  background-color: var(--primary-color);
+  /* background-color: var(--primary-color); */
+  background-color: #5dad35;
   color: var(--light-color);
   height: auto;
   border-top-left-radius: 1500px 200px;
@@ -336,13 +338,14 @@ section ul li {
   height: 100%;
   background: linear-gradient(
   #ffffff00 0%,
-  #70cc41 100%
-  )
+  #5dad35 100%
+  );
 }
 
 /* Footer */
 footer {
-  background: var(--primary-color);
+  /* background: var(--primary-color); */
+  background-color: #5dad35;
   color: var(--light-color);
   text-align: center;
   padding: 20px 0;
