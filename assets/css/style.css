@@ -359,6 +359,9 @@ footer a {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .tag:hover, .tag-big:hover {
+    background-color: #EEEEEE15;
+  }
   .hero {
     border-bottom-left-radius: 1500px 400px;
     border-bottom-right-radius: 1500px 400px;
