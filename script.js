@@ -1,64 +1,63 @@
-const amplitude = 2;
-const verticalAmplitude = 2;
-const rotationAmplitude = 3;
-const cursorFactor = 10;
-const baseSpeed = 0.02;
-let lastTimestamp = null;
+document.addEventListener("DOMContentLoaded", () => {
+    const navLinks = document.querySelectorAll('.nav-link');
+    const contactButton = document.getElementById('contact-button');
 
-const wiggles = document.querySelectorAll('.wiggle');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const targetSection = document.getElementById(targetId);
 
-wiggles.forEach(wiggle => {
-  wiggle._angle = Math.random() * 2 * Math.PI;
-  wiggle._amplifier = parseFloat(wiggle.getAttribute('ampl')) || 1;
-  wiggle._baseSpeed = baseSpeed * (0.5 + Math.random());
-  wiggle._targetCursorX = 0;
-  wiggle._targetCursorY = 0;
-  wiggle._cursorX = 0;
-  wiggle._cursorY = 0;
+        if (targetSection) {
+          const topOffset = targetSection.getBoundingClientRect().top + window.scrollY - 135;
+          window.scrollTo({ top: topOffset, behavior: 'smooth' });
+        }
+      });
+    });
 
-  wiggle.addEventListener('mousemove', (event) => {
-    const rect = wiggle.getBoundingClientRect();
-    const targetX = (event.clientX - rect.left - rect.width / 2) / rect.width;
-    const targetY = (event.clientY - rect.top - rect.height / 2) / rect.height;
-    wiggle._targetCursorX = targetX;
-    wiggle._targetCursorY = targetY;
-  });
+    if (contactButton) {
+      contactButton.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const targetSection = document.getElementById(targetId);
 
-  wiggle.addEventListener('mouseleave', () => {
-    wiggle._targetCursorX = 0;
-    wiggle._targetCursorY = 0;
-  });
+        if (targetSection) {
+          const topOffset = targetSection.getBoundingClientRect().top + window.scrollY - 135;
+          window.scrollTo({ top: topOffset, behavior: 'smooth' });
+        }
+      });
+    }
 });
 
-function animate(timestamp) {
-  if (!lastTimestamp) {
-    lastTimestamp = timestamp;
-  }
-  const deltaTime = timestamp - lastTimestamp;
-  const speedFactor = deltaTime / (1000 / 60);
-  
-  wiggles.forEach(wiggle => {
-    const easingFactor = 0.1;
-    wiggle._cursorX += (wiggle._targetCursorX - wiggle._cursorX) * easingFactor;
-    wiggle._cursorY += (wiggle._targetCursorY - wiggle._cursorY) * easingFactor;
+document.querySelectorAll('.custom-dropdown').forEach(dropdown => {
+  const toggle = dropdown.querySelector('.dropdown-toggle');
+  const options = dropdown.querySelectorAll('.dropdown-options li');
+  const hiddenInput = dropdown.querySelector('input[type="hidden"]');
 
-    wiggle._angle += wiggle._baseSpeed * speedFactor;
-    const angle = wiggle._angle;
-    
-    const translateX = Math.sin(angle) * amplitude * wiggle._amplifier + (wiggle._cursorX * cursorFactor * wiggle._amplifier);
-    const translateY = Math.cos(angle) * verticalAmplitude * wiggle._amplifier + (wiggle._cursorY * cursorFactor * wiggle._amplifier);
-    const rotateX = Math.sin(angle) * rotationAmplitude * wiggle._amplifier + (wiggle._cursorY * cursorFactor * wiggle._amplifier);
-    const rotateY = Math.cos(angle) * rotationAmplitude * wiggle._amplifier + (wiggle._cursorX * cursorFactor * wiggle._amplifier);
-    
-    wiggle.style.transform = `
-      translate3d(${translateX}px, ${translateY}px, 0)
-      rotateX(${rotateX}deg)
-      rotateY(${rotateY}deg)
-    `;
+  toggle.classList.add('placeholder');
+  toggle.textContent = 'Select language..';
+  hiddenInput.value = '';
+
+  toggle.addEventListener('click', () => {
+    dropdown.classList.toggle('open');
   });
-  
-  lastTimestamp = timestamp;
-  requestAnimationFrame(animate);
-}
 
-requestAnimationFrame(animate);
+  options.forEach(option => {
+    option.addEventListener('click', () => {
+      const value = option.getAttribute('data-value');
+      const label = option.textContent;
+
+      toggle.textContent = label;
+      toggle.classList.remove('placeholder');
+      hiddenInput.value = value;
+      dropdown.classList.remove('open');
+    });
+  });
+
+  // Close dropdown if clicked outside
+  document.addEventListener('click', e => {
+    if (!dropdown.contains(e.target)) {
+      dropdown.classList.remove('open');
+    }
+  });
+});
