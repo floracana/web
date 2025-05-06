@@ -237,6 +237,11 @@
     height: 100vh;
   }
 
+  a[href^="tel"] {
+    color: #eee !important;
+    text-decoration: none !important;
+  }
+
   .home-image img {
     max-width: 100%;
     height: auto;
