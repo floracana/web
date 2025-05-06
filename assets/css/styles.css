@@ -240,7 +240,6 @@
   .home-image img {
     max-width: 100%;
     height: auto;
-    background-color: #808080; /* Placeholder background for image */
   }
 
   /* What's Inside section */
@@ -260,7 +259,7 @@
     margin-bottom: 1rem;
   }
 
-  .info-item h4 {
+  .info-item h3 {
     font-weight: 600;
     margin-bottom: 0.5rem;
     letter-spacing: -0.2px;
@@ -288,7 +287,6 @@
     width: 100%;
     height: auto;
     display: block;
-    background-color: #808080; /* Placeholder background for image */
   }
 
   .flavor-item {
@@ -448,7 +446,7 @@
   }
 
   .dropdown-toggle.placeholder {
-    color: #808080;
+    color: #999999;
   }
 
   .dropdown-toggle:not(.placeholder) {
@@ -507,7 +505,6 @@
     justify-content: center;
     text-align: center;
     padding: 1rem;
-    margin-top: -75px;
   }
 
 
@@ -644,11 +641,6 @@
     .contact-right {
       width: 100%;
     }
-
-    .footer {
-      margin-top: -25px;
-    }
-
   }
 
   
