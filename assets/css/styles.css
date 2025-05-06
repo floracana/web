@@ -336,6 +336,10 @@
     border-radius: var(--radius-large);
   }
 
+  .contact-container p {
+    color: #aeaeae;
+  }
+
   .contact-left {
     width: 100%;
     padding: 2rem;
@@ -537,10 +541,10 @@
     }
 
     .contact-left {
-      background: linear-gradient(0deg, #333, #111);
+      background: linear-gradient(0deg, #222, #111);
       border: 1px solid #333;
-      box-shadow: 0px 0px 20px #222;
-      box-shadow: 0px 0px 40px #333;
+      box-shadow: 0px 0px 20px #1c1c1c;
+      box-shadow: 0px 0px 40px #222;
     }
 
     .contact-left::before {
@@ -556,6 +560,16 @@
       border-radius: var(--radius-large);
     }
 
+    .tag-contact {
+      background: transparent;
+      padding: 0;
+      border-radius: 0;
+      color: #aeaeae;
+    }
+
+    .contact-row {
+      flex-direction: column;
+    }
   }
   
   /* Responsive Design: Mobile */
@@ -577,6 +591,14 @@
     .navbar {
       left: 0;
       transform: translateX(0%);
+    }
+
+    .navbar-blur {
+      height: 100px;
+    }
+
+    .navbar-overlay {
+      height: 100px;
     }
 
     .info-grid {
