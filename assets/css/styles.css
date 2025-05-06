@@ -238,8 +238,7 @@
   }
 
   a[href^="tel"] {
-    color: #eee !important;
-    text-decoration: none !important;
+    color: #aeaeae !important;
   }
 
   .home-image img {
